@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
 import ListBars from './../components/ListBars';
 import axios from 'axios';
-import GetGoogle from './../utils/googleHelper';
+import googleHelper from './../utils/googleHelper';
+
+
+const styles = {
+  width: '90%',
+  textAlign: 'center',
+  marginLeft: 'auto',
+  marginRight: 'auto'
+}
 
 class Bars extends Component {
   constructor(props){
@@ -13,17 +21,22 @@ class Bars extends Component {
     axios.get(`http://localhost:3001/bars`)
       .then(res => {
         const bars = res.data.map((obj) => obj);
-        console.log(bars)
         this.setState({ 'bars': bars })
-      })
-    const x = GetGoogle('ChIJQTbROE5d1moR3mLmtFMXdus')
-    console.log(x)
+      }).then(() => {
+        googleHelper.MultiGoogle(this.state.bars)
+        .then(res => {
+          const data = res.map((obj) => {
+            return obj.data.result
+          })
+          console.log(data)
+          this.setState({ 'bars': data })
+        })})
 
   }
 
   render(){
     return (
-      <div> Class system works
+      <div style={styles}>
         <ListBars bars={this.state.bars} />
       </div>
     )

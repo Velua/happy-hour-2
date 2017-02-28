@@ -37,4 +37,17 @@ module.exports = function(app, db) {
       }
     });
   });
+
+  app.delete('/bars/:id', (req, res) => {
+    const id = req.params.id
+    const note = { '_id': new ObjectID(id) }
+    db.collection('bars').remove(note, (err, item) => {
+      if (err) {
+        res.send("We got a problem.")
+      } else {
+        res.send(`Bar ${id} has successfully been deleted.`);
+      }
+    })
+  })
+
 };

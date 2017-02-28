@@ -1,16 +1,21 @@
-import React from 'react'
+import React from 'react';
+import Bar from './../containers/Bar';
 
 const ListBars = function(props){
   const { bars } = props
 
   const Bars = bars.map((bar, index) => {
-    return <li key={index}>{bar.name}</li>
+    return <Bar key={index} data={bar} />
   })
 
+  const styles = {
+    width: '90%'
+  }
+
   return (
-    <ul>
+    <div style={styles}>
       {Bars}
-    </ul>
+    </div>
   )
 }
 
