@@ -11,7 +11,7 @@ Data is then rendered on the page with React.
 Warning: Access-Control-Allow-Origin needs to be disabled to render.
 
 
-``` git clone  https://github.com/Velua/happy-hour-2.git ```
+    git clone  https://github.com/Velua/happy-hour-2.git 
 
     npm install
 in both node project & react project
