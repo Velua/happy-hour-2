@@ -38,6 +38,20 @@ module.exports = function(app, db) {
     });
   });
 
+  app.put('/bars/:id', (req, res) => {
+    const id = req.params.id;
+    const bar = { '_id': new ObjectID(id) }
+    const new_bar = { name: req.body.name, google_id: req.body.google_id, timeStart: req.body.timeStart, timeEnd: req.body.timeEnd, deals: req.body.deals }
+    console.log(new_bar)
+    db.collection('bars').update(bar, new_bar, (err, result) => {
+      if (err){
+        res.send('Error');
+      } else {
+        res.send(result);
+      }
+    })
+  })
+
   app.delete('/bars/:id', (req, res) => {
     const id = req.params.id
     const note = { '_id': new ObjectID(id) }

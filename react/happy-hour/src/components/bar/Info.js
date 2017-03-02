@@ -2,14 +2,13 @@ import React from 'react';
 import Address from './Address';
 
 const Info = props => {
-  const { name, rating, address_components} = props.data
-  console.log(props.data)
-  console.log('heeeere')
-  console.log(props.deals)
-  console.log('end')
+  const { rating, address_components, deals, timeStart, timeEnd} = props.data
+
   return (
     <div>
      { rating } Stars
+     <div> Happy hour starts at {timeStart} finishing at {timeEnd} </div>
+     <div> {deals}</div>
       <div> {address_components && <Address data={address_components} />} </div>
     </div>
   )

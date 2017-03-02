@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import ListBars from './../components/ListBars';
-import axios from 'axios';
-import googleHelper from './../utils/googleHelper';
 import { fetchAllBars } from './../utils/bars';
-import Bar from './bars';
+
 
 
 const styles = {

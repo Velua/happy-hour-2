@@ -2,13 +2,12 @@ import React from 'react';
 import Info from './bar/Info';
 import Find from './bar/Find';
 import Hours from './bar/Hours';
-import GooglePic from './bar/GooglePic';
 
 const BarCom = (props) => {
-  console.log(props)
+
     return (
       <div key={props.data.index} style={props.data.styles}>
-      <img src={props.pic} />
+      <img src={props.pic} alt="Business" />
 
       <a href={props.data.url} target="_blank" ><h2>{props.data.name}</h2></a>
           <ul className="nav nav-tabs">
@@ -21,8 +20,9 @@ const BarCom = (props) => {
       {props.booly.find && (<Find data={props.data} />)}
       {props.booly.hours && (<Hours hours_array={props.data.opening_hours.weekday_text} />)}
 
-      </div>)
-      }
+      </div>
+    )
+}
 
 
 export default BarCom;

@@ -5,23 +5,31 @@ export function fetchAllBars(getRequest) {
   return axios.get(getRequest)
     .then(res => {
       const localBarsArray = res.data
+
       const googleIDToLocalData = {};
       localBarsArray.forEach(localBar => {
         googleIDToLocalData[localBar.google_id] = localBar;
       });
 
-      console.log('local bars', googleIDToLocalData)
+
       return googleHelper.MultiGoogle(localBarsArray)
       .then(res => {
         const mergedBars = res.map((obj) => {
           const googleData = obj.data.result
+          // let localData;
+          // localBarsArray.forEach(localBar => {
+          //   if (localBar.google_id == googleData.place_id) {
+          //     localData = localBar
+          //   }
+          // });
           const localData = googleIDToLocalData[googleData.place_id];
           return Object.assign({}, googleData, {
-            name: localData.name,
-            //reviews: localData.reviews
+            timeStart: localData.timeStart,
+            timeEnd: localData.timeEnd,
+            deals: localData.deals
           })
         })
-        console.log('google bars', mergedBars)
+
         return mergedBars
       })})
 }

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import BarCom from './../components/BarCom';
-import axios from 'axios';
-
 
 const styles = {
   width: '40%',
