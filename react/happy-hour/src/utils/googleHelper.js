@@ -14,6 +14,7 @@ const googleHelper = {
     }))
   },
 
+
   // GetGooglePhoto(photos) {
   //   return photos[0].photo_reference
   //   // photo_id, maxwidth='400'

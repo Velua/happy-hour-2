@@ -4,12 +4,14 @@ import Bar from './../containers/Bar';
 const ListBars = function(props){
   const { bars } = props
 
+
   const Bars = bars.map((bar, index) => {
-    return <Bar key={index} data={bar} />
+    return <Bar deals={props.deals} key={index} data={bar} isLoading={props.isLoading} />
   })
 
   const styles = {
-    width: '90%'
+    width: '100%',
+
   }
 
   return (

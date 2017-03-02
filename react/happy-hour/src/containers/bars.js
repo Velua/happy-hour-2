@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import ListBars from './../components/ListBars';
 import axios from 'axios';
 import googleHelper from './../utils/googleHelper';
+import { fetchAllBars } from './../utils/bars';
+import Bar from './bars';
 
 
 const styles = {
@@ -14,30 +16,26 @@ const styles = {
 class Bars extends Component {
   constructor(props){
     super(props);
-    this.state = { bars: []}
+    this.state = {
+       bars: [],
+       isLoading: true
+     }
   }
 
   componentDidMount(){
-    axios.get(`http://localhost:3001/bars`)
-      .then(res => {
-        const bars = res.data.map((obj) => obj);
-        this.setState({ 'bars': bars })
-      }).then(() => {
-        googleHelper.MultiGoogle(this.state.bars)
-        .then(res => {
-          const data = res.map((obj) => {
-            return obj.data.result
-          })
-          console.log(data)
-          this.setState({ 'bars': data })
-        })})
+    fetchAllBars('http://localhost:3001/bars')
+    .then(bars => {
+      this.setState({ bars: bars, isLoading: false })
+    })
 
   }
 
   render(){
+
     return (
-      <div style={styles}>
-        <ListBars bars={this.state.bars} />
+      <div style={styles}>Wrapper
+        {this.state.isloading && <h1>Downloading bars! Hang on!</h1>}
+        {!this.state.isloading && <ListBars deals={this.state.homebars} bars={this.state.bars}  />}
       </div>
     )
   }

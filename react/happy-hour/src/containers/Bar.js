@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import BarCom from './../components/BarCom';
+import axios from 'axios';
 
 
 const styles = {
@@ -19,10 +20,13 @@ class Bar extends Component {
     this.state = {
        bar: true,
        find: false,
-       hours: false
+       hours: false,
+       isLoading: true,
+       picture: 'https://i.stack.imgur.com/ozSKx.jpg'
      }
      this.handleClick = this.handleClick.bind(this);
-     this.styles = this.styles.bind(this);
+    //  this.getGooglePic = this.getGooglePic.bind(this);
+
 
   }
 
@@ -31,20 +35,32 @@ class Bar extends Component {
     this.setState(data);
   }
 
-  styles() {
-    return {
-      width: '49%',
-      textAlign: 'left',
-      border: '1px solid black',
-      float: 'left',
-      backgroundColor: 'grey'
-      }
+
+
+
+  getGooglePic(photo_ID){
+    const googleKey = 'AIzaSyBjP5nWZ5y6tn7kL_iOiIOlVhA7c07k9W8'
+    const maxwidth = '300'
+    const request = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=${maxwidth}&photoreference=${photo_ID}&key=${googleKey}`
+    console.log('my request will be')
+    console.log(request)
+    // axios.get(request).then((obj) => {
+    //   console.log('response')
+    //   console.log(obj)
+    //   this.setState({ picture: obj.request.responseURL })
+    //   console.log(this.state.picture)
+    // })
   }
 
   render() {
+
+    // if (!this.props.isLoading && this.state.picture == 'https://i.stack.imgur.com/ozSKx.jpg'){
+    //   this.getGooglePic(this.props.data.photos[0].photo_reference)
+    // }
         return (
           <div style={styles}>
-            <BarCom booly={this.state} onChange={this.handleClick} data={this.props.data}/>
+            {this.state.loading && <span>Loading...</span>}
+            {!this.state.loading && <BarCom deals={this.props.deals} booly={this.state} pic={this.state.picture} onChange={this.handleClick}  data={this.props.data}/>}
           </div>
         )
        }
