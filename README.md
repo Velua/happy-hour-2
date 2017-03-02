@@ -13,9 +13,14 @@ Warning: Access-Control-Allow-Origin needs to be disabled to render.
 
 ``` git clone  https://github.com/Velua/happy-hour-2.git ```
 
-```npm install``` in both node project & react project
-```npm start dev``` in React folder
-```nom start``` in Node folder
+    npm install
+in both node project & react project
+
+   npm start dev
+in React folder
+
+    npm start
+in Node folder
 
 
 
