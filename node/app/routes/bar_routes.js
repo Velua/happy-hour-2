@@ -2,8 +2,6 @@ var ObjectID = require('mongodb').ObjectID;
 
 module.exports = function(app, db) {
 
-
-
   app.get('/bars', (req, res) => {
     db.collection('bars').find({}).toArray(function(error, items) {
     if (error) {
@@ -28,7 +26,7 @@ module.exports = function(app, db) {
   });
 
   app.post('/bars', (req, res) => {
-    const bar = { name: req.body.name, google_id: req.body.google_id };
+    const bar = { name: req.body.name, google_id: req.body.google_id, timeStart: req.body.timeStart, timeEnd: req.body.timeEnd, deals: req.body.deals }
     db.collection('bars').insert(bar, (err, result) => {
       if (err){
         res.send("There's an error, sorry mate.");

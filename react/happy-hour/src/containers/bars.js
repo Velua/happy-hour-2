@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import ListBars from './../components/ListBars';
 import { fetchAllBars } from './../utils/bars';
 
-
-
 const styles = {
   width: '90%',
   textAlign: 'center',

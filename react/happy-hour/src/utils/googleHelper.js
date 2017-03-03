@@ -14,14 +14,6 @@ const googleHelper = {
     }))
   },
 
-
-  // GetGooglePhoto(photos) {
-  //   return photos[0].photo_reference
-  //   // photo_id, maxwidth='400'
-  //   // const googleKey = 'AIzaSyBjP5nWZ5y6tn7kL_iOiIOlVhA7c07k9W8'
-  //   // return `https://maps.googleapis.com/maps/api/place/photo?maxwidth=${maxwidth}&photoreference=${photo_id}&key=${googleKey}`
-  // }
-
 }
 
 export default googleHelper;

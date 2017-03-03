@@ -9,13 +9,10 @@ const ListBars = function(props){
     return <Bar deals={props.deals} key={index} data={bar} isLoading={props.isLoading} />
   })
 
-  const styles = {
-    width: '100%',
 
-  }
 
   return (
-    <div style={styles}>
+    <div>
       {Bars}
     </div>
   )

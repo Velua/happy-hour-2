@@ -3,11 +3,16 @@ import BarCom from './../components/BarCom';
 
 const styles = {
   width: '40%',
+  boxSizing: 'border-box',
   textAlign: 'center',
   border: '1px solid black',
   float: 'left',
-  marginLeft: 'auto',
-  marginRight: '5%'
+  marginLeft: '5%',
+  marginRight: '5%',
+  marginTop: '5%',
+  borderRadius: '25px',
+  background: '#eee',
+  padding: '20px'
 }
 
 
