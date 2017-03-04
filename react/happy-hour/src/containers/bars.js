@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ListBars from './../components/ListBars';
 import { fetchAllBars } from './../utils/bars';
+import Bar from './Bar';
 
 const styles = {
   width: '90%',
@@ -22,18 +22,23 @@ class Bars extends Component {
     fetchAllBars('http://localhost:3001/bars')
     .then(bars => {
       this.setState({ bars: bars, isLoading: false })
-    })
-
+    });
   }
 
   render(){
 
+    if (this.state.isLoading) {
+      return <p>Loading…</p>;
+    }
+
     return (
-      <div style={styles}>Wrapper
-        {this.state.isloading && <h1>Downloading bars! Hang on!</h1>}
-        {!this.state.isloading && <ListBars deals={this.state.homebars} bars={this.state.bars}  />}
+      <div>
+        {this.state.bars.map((bar, index) => {
+          return <Bar deals={bar.deals} key={index} data={bar} />
+        })}
       </div>
     )
+
   }
 }
 
