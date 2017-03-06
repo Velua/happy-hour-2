@@ -16,7 +16,7 @@ class Bars extends Component {
     this.state = {
        bars: []
      }
-     this.fucksake = this.fucksake.bind(this);
+     this.wtf = this.wtf.bind(this);
   }
 
 
@@ -25,12 +25,12 @@ class Bars extends Component {
     , {
       context: this,
       state: 'bars',
-      then: this.fucksake()
+      then: this.wtf()
     })
   }
 
 
-  fucksake(){
+  wtf(){
     console.log('fuck sake has run')
     console.log(this.state.bars)
     if (this.state.bars.length > 0) {
