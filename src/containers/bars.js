@@ -36,7 +36,6 @@ class Bars extends Component {
         fetchAllBars(bars)
         .then(bars => {
           this.setState({ mergedBars: bars, isLoading: false })
-          console.log(this.state.mergedBars)
         })
       }
     })

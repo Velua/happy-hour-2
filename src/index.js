@@ -4,7 +4,6 @@ import City from './City';
 import './index.css';
 import { BrowserRouter, Match, Miss } from 'react-router';
 import NotFound from './components/NotFound';
-import BarDetail from './components/BarDetail';
 import PickCity from './containers/PickCity';
 
 

@@ -1,4 +1,3 @@
-import axios from 'axios'
 import googleHelper from './googleHelper'
 
 export function fetchAllBars(localBarsArray) {

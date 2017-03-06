@@ -30,7 +30,7 @@ class Bar extends Component {
      this.handleClick = this.handleClick.bind(this);
     //  this.getGooglePic = this.getGooglePic.bind(this);
 
-
+    console.log(this.props.data)
   }
 
   handleClick(data, e){
@@ -63,7 +63,7 @@ class Bar extends Component {
         return (
           <div style={styles}>
             {this.state.loading && <span>Loading...</span>}
-            {!this.state.loading && <BarCom deals={this.props.deals} booly={this.state} pic={this.state.picture} onChange={this.handleClick}  data={this.props.data}/>}
+            {!this.state.loading && <BarCom deals={this.props.deals} booly={this.state} pic={this.props.data.picture} onChange={this.handleClick}  data={this.props.data}/>}
           </div>
         )
        }
