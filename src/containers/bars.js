@@ -31,7 +31,7 @@ class Bars extends Component {
 
 
   wtf(){
-    console.log('fuck sake has run')
+    console.log('wtf has run')
     console.log(this.state.bars)
     if (this.state.bars.length > 0) {
       alert('Holy shit it worked.')
