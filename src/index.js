@@ -6,10 +6,11 @@ import { BrowserRouter, Match, Miss } from 'react-router';
 import NotFound from './components/NotFound';
 import PickCity from './containers/PickCity';
 
+const repo = `/${window.location.pathname.split('/')[1]}`;
 
 const Root = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={repo}>
       <div>
         <Match exactly pattern="/" component={PickCity}/>
         <Match exactly pattern="/melbourne" component={City}/>
