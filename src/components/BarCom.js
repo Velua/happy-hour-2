@@ -8,10 +8,10 @@ const BarCom = (props) => {
     console.log(props.data)
     return (
       <div key={props.data.index} style={props.data.styles}>
-      <GooglePic picID={props.data.photos[0].photo_reference} />
+      <GooglePic picID={props.data.picture} />
 
       <a href={props.data.url} target="_blank" ><h2>{props.data.name}</h2></a>
-      
+
           <ul className="nav nav-tabs">
             <li role="presentation" onClick={(e) => props.onChange({bar: true, find: false, hours: false}, e)} className={props.booly.bar && 'active'}><a href="#">Bar</a></li>
             <li role="presentation" onClick={(e) => props.onChange({find: true, bar: false, hours: false}, e)} className={props.booly.find && 'active'}><a href="#">Find</a></li>
